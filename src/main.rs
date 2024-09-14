@@ -1,10 +1,12 @@
 mod font;
+mod tree;
 
+use lazy_static::lazy_static;
 use iced::{highlighter, Pixels};
 use iced::keyboard;
 use iced::widget::{
     self, button, column, container, horizontal_space, pick_list, row, text,
-    text_editor, toggler, tooltip,
+    text_editor, toggler, tooltip
 };
 use iced::{Center, Element, Fill, Task, Theme};
 
@@ -15,10 +17,16 @@ use std::sync::Arc;
 
 use font::Font;
 
+
+// use rust_analyzer::main_loop;
+// use rust_analyzer::config::Config;
+// use lsp_server::Connection;
+
+
 fn settings() -> iced::Settings {
     iced::Settings {
         default_font: font::REGULAR.clone().into(),
-        default_text_size: Pixels::from(12.0),
+        default_text_size: Pixels::from(11.0),
         id: None,
         antialiasing: true,
         fonts: font::load(),
@@ -172,9 +180,45 @@ impl Editor {
                 Message::ThemeSelected
             )
             .padding([5, 10])
-        ]
-            .spacing(10)
-            .align_y(Center);
+        ].spacing(10).align_y(Center);
+
+        let editor = text_editor(&self.content)
+            .font(font::MONO)
+            .height(Fill)
+            .on_action(Message::ActionPerformed)
+            .wrapping(if self.word_wrap {
+                text::Wrapping::Word
+            } else {
+                text::Wrapping::None
+            })
+            .highlight(
+                self.file
+                    .as_deref()
+                    .and_then(Path::extension)
+                    .and_then(ffi::OsStr::to_str)
+                    .unwrap_or("rs"),
+                self.theme,
+            )
+            .key_binding(|key_press| {
+                match key_press.key.as_ref() {
+                    keyboard::Key::Character("s")
+                    if key_press.modifiers.command() =>
+                        {
+                            Some(text_editor::Binding::Custom(
+                                Message::SaveFile,
+                            ))
+                        }
+                    _ => text_editor::Binding::from_key_press(key_press),
+                }
+            });
+
+        let middle = row![
+            editor
+        ];
+
+        // let build = row![
+        //
+        // ];
 
         let status = row![
             text(if let Some(path) = &self.file {
@@ -191,44 +235,14 @@ impl Editor {
             horizontal_space(),
             text({
                 let (line, column) = self.content.cursor_position();
-
                 format!("{}:{}", line + 1, column + 1)
             })
-        ]
-            .spacing(10);
+        ].spacing(10);
 
         column![
             controls,
-            text_editor(&self.content)
-                .font(font::MONO)
-                .height(Fill)
-                .on_action(Message::ActionPerformed)
-                .wrapping(if self.word_wrap {
-                    text::Wrapping::Word
-                } else {
-                    text::Wrapping::None
-                })
-                .highlight(
-                    self.file
-                        .as_deref()
-                        .and_then(Path::extension)
-                        .and_then(ffi::OsStr::to_str)
-                        .unwrap_or("rs"),
-                    self.theme,
-                )
-                .key_binding(|key_press| {
-                    match key_press.key.as_ref() {
-                        keyboard::Key::Character("s")
-                            if key_press.modifiers.command() =>
-                        {
-                            Some(text_editor::Binding::Custom(
-                                Message::SaveFile,
-                            ))
-                        }
-                        _ => text_editor::Binding::from_key_press(key_press),
-                    }
-                }),
-            status,
+            middle,
+            status
         ].spacing(10).padding(10).into()
     }
 
