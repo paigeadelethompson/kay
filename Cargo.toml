@@ -1,0 +1,39 @@
+[package]
+name = "kay"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+iced = { git = "https://github.com/iced-rs/iced.git", features = [
+    "highlighter",
+    "tokio",
+    "advanced",
+    "debug"] }
+rfd = "0.14.1"
+ffi = "0.1.1"
+tokio = { version = "1.40.0", features = ["full"] }
+rust-analyzer = { git = "https://github.com/rust-lang/rust-analyzer.git" }
+
+[source.crates-io]
+replace-with = "vendored-sources"
+
+[source."git+https://github.com/hecrj/glyphon.git?rev=feef9f5630c2adb3528937e55f7bfad2da561a65"]
+git = "https://github.com/hecrj/glyphon.git"
+rev = "feef9f5630c2adb3528937e55f7bfad2da561a65"
+replace-with = "vendored-sources"
+
+[source."git+https://github.com/iced-rs/iced.git"]
+git = "https://github.com/iced-rs/iced.git"
+replace-with = "vendored-sources"
+
+[source."git+https://github.com/iced-rs/winit.git?rev=254d6b3420ce4e674f516f7a2bd440665e05484d"]
+git = "https://github.com/iced-rs/winit.git"
+rev = "254d6b3420ce4e674f516f7a2bd440665e05484d"
+replace-with = "vendored-sources"
+
+[source."git+https://github.com/rust-lang/rust-analyzer.git"]
+git = "https://github.com/rust-lang/rust-analyzer.git"
+replace-with = "vendored-sources"
+
+[source.vendored-sources]
+directory = "vendor"
