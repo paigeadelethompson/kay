@@ -11,7 +11,7 @@ iced = { git = "https://github.com/iced-rs/iced.git", features = [
     "default",
     "lazy",
     "debug"] }
-rfd = "0.14.1"
+rfd = "0.15.1"
 ffi = "0.1.1"
 tokio = { version = "1.42.0", features = ["full"] }
 rust-analyzer = { git = "https://github.com/rust-lang/rust-analyzer.git" }
