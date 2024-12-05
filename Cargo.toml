@@ -13,7 +13,7 @@ iced = { git = "https://github.com/iced-rs/iced.git", features = [
     "debug"] }
 rfd = "0.14.1"
 ffi = "0.1.1"
-tokio = { version = "1.40.0", features = ["full"] }
+tokio = { version = "1.42.0", features = ["full"] }
 rust-analyzer = { git = "https://github.com/rust-lang/rust-analyzer.git" }
 lazy_static = "1.5.0"
 lsp-server = "0.7.7"
