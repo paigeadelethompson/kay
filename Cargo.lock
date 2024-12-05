@@ -371,13 +371,13 @@ dependencies = [
 [[package]]
 name = "base-db"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "cfg",
  "intern",
  "la-arena",
  "lz4_flex",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "salsa",
  "semver",
  "span",
@@ -624,10 +624,11 @@ checksum = "6d43a04d8753f35258c91f8ec639f792891f748a1edbd759cf1dcea3382ad83c"
 [[package]]
 name = "cfg"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "intern",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
+ "tracing",
  "tt",
 ]
 
@@ -1829,7 +1830,7 @@ checksum = "dfa686283ad6dd069f105e5ab091b04c62850d3e4cf5d67debad1933f55023df"
 [[package]]
 name = "hir"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "arrayvec",
  "base-db",
@@ -1840,7 +1841,7 @@ dependencies = [
  "hir-ty",
  "intern",
  "itertools",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "smallvec",
  "span",
  "stdx",
@@ -1853,7 +1854,7 @@ dependencies = [
 [[package]]
 name = "hir-def"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "arrayvec",
  "base-db",
@@ -1874,12 +1875,13 @@ dependencies = [
  "mbe",
  "ra-ap-rustc_abi",
  "ra-ap-rustc_parse_format",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "rustc_apfloat",
  "smallvec",
  "span",
  "stdx",
  "syntax",
+ "text-size",
  "tracing",
  "triomphe",
  "tt",
@@ -1888,7 +1890,7 @@ dependencies = [
 [[package]]
 name = "hir-expand"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "base-db",
  "cfg",
@@ -1901,7 +1903,7 @@ dependencies = [
  "limit",
  "mbe",
  "parser",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "smallvec",
  "span",
  "stdx",
@@ -1915,7 +1917,7 @@ dependencies = [
 [[package]]
 name = "hir-ty"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "arrayvec",
  "base-db",
@@ -1939,7 +1941,7 @@ dependencies = [
  "ra-ap-rustc_abi",
  "ra-ap-rustc_index",
  "ra-ap-rustc_pattern_analysis",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "rustc_apfloat",
  "scoped-tls",
  "smallvec",
@@ -2171,7 +2173,7 @@ dependencies = [
 [[package]]
 name = "ide"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "arrayvec",
  "cfg",
@@ -2195,7 +2197,6 @@ dependencies = [
  "span",
  "stdx",
  "syntax",
- "text-edit",
  "toolchain",
  "tracing",
  "triomphe",
@@ -2205,7 +2206,7 @@ dependencies = [
 [[package]]
 name = "ide-assists"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "cov-mark",
  "either",
@@ -2215,14 +2216,13 @@ dependencies = [
  "smallvec",
  "stdx",
  "syntax",
- "text-edit",
  "tracing",
 ]
 
 [[package]]
 name = "ide-completion"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "base-db",
  "cov-mark",
@@ -2232,14 +2232,13 @@ dependencies = [
  "smallvec",
  "stdx",
  "syntax",
- "text-edit",
  "tracing",
 ]
 
 [[package]]
 name = "ide-db"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "arrayvec",
  "base-db",
@@ -2258,11 +2257,10 @@ dependencies = [
  "parser",
  "profile",
  "rayon",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "span",
  "stdx",
  "syntax",
- "text-edit",
  "tracing",
  "triomphe",
 ]
@@ -2270,7 +2268,7 @@ dependencies = [
 [[package]]
 name = "ide-diagnostics"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "cfg",
  "cov-mark",
@@ -2282,14 +2280,13 @@ dependencies = [
  "serde_json",
  "stdx",
  "syntax",
- "text-edit",
  "tracing",
 ]
 
 [[package]]
 name = "ide-ssr"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "cov-mark",
  "hir",
@@ -2299,7 +2296,6 @@ dependencies = [
  "parser",
  "stdx",
  "syntax",
- "text-edit",
  "triomphe",
 ]
 
@@ -2361,11 +2357,11 @@ dependencies = [
 [[package]]
 name = "intern"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "dashmap",
  "hashbrown 0.14.5",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "sptr",
  "triomphe",
 ]
@@ -2561,13 +2557,13 @@ dependencies = [
 [[package]]
 name = "limit"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 
 [[package]]
 name = "line-index"
-version = "0.1.1"
+version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "67d61795376ae2683928c218fda7d7d7db136fd38c06b7552904667f0d55580a"
+checksum = "3e27e0ed5a392a7f5ba0b3808a2afccff16c64933312c84b57618b49d1209bd2"
 dependencies = [
  "nohash-hasher",
  "text-size",
@@ -2594,7 +2590,7 @@ checksum = "2a385b1be4e5c3e362ad2ffa73c392e53f031eaa5b7d648e64cd87f27f6063d7"
 [[package]]
 name = "load-cargo"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "anyhow",
  "crossbeam-channel",
@@ -2729,13 +2725,14 @@ dependencies = [
 [[package]]
 name = "mbe"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "arrayvec",
  "cov-mark",
  "intern",
  "parser",
- "rustc-hash 1.1.0",
+ "ra-ap-rustc_lexer",
+ "rustc-hash 2.0.0",
  "smallvec",
  "span",
  "stdx",
@@ -3009,6 +3006,15 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.77",
+]
+
+[[package]]
+name = "num_threads"
+version = "0.1.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5c7398b9c8b70908f6371f47ed36737907c87c52af34c268fed0bf0ceb92ead9"
+dependencies = [
+ "libc",
 ]
 
 [[package]]
@@ -3446,7 +3452,7 @@ dependencies = [
 [[package]]
 name = "parser"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "drop_bomb",
  "limit",
@@ -3463,7 +3469,7 @@ checksum = "57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a"
 [[package]]
 name = "paths"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "camino",
  "serde",
@@ -3666,13 +3672,13 @@ checksum = "e8cf8e6a8aa66ce33f63993ffc4ea4271eb5b0530a9002db8455ea6050c77bfa"
 [[package]]
 name = "proc-macro-api"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "base-db",
  "indexmap",
  "intern",
  "paths",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "serde",
  "serde_json",
  "span",
@@ -3751,7 +3757,7 @@ dependencies = [
 [[package]]
 name = "profile"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "cfg-if",
  "libc",
@@ -3768,7 +3774,7 @@ checksum = "43d84d1d7a6ac92673717f9f6d1518374ef257669c24ebc5ac25d5033828be58"
 [[package]]
 name = "project-model"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "anyhow",
  "base-db",
@@ -3778,7 +3784,7 @@ dependencies = [
  "itertools",
  "la-arena",
  "paths",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "semver",
  "serde",
  "serde_json",
@@ -3791,9 +3797,9 @@ dependencies = [
 
 [[package]]
 name = "protobuf"
-version = "3.2.0"
+version = "3.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b55bad9126f378a853655831eb7363b7b01b81d19f8cb1218861086ca4a1a61e"
+checksum = "a3a7c64d9bf75b1b8d981124c14c179074e8caa7dfe7b6a12e6222ddcd0c8f72"
 dependencies = [
  "once_cell",
  "protobuf-support",
@@ -3802,9 +3808,9 @@ dependencies = [
 
 [[package]]
 name = "protobuf-support"
-version = "3.2.0"
+version = "3.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a5d4d7b8601c814cfb36bcebb79f0e61e45e1e93640cf778837833bbed05c372"
+checksum = "b088fd20b938a875ea00843b6faf48579462630015c3788d397ad6a786663252"
 dependencies = [
  "thiserror",
 ]
@@ -3858,9 +3864,9 @@ dependencies = [
 
 [[package]]
 name = "ra-ap-rustc_abi"
-version = "0.63.0"
+version = "0.80.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b011c39d409940a890414e3a7b239762ac16d88029ad71b050a8374831b93790"
+checksum = "613760a3071b25a67a8d7bc97b37c7fd4722562e9479137b83ae9cf8f8c1601a"
 dependencies = [
  "bitflags 2.6.0",
  "ra-ap-rustc_index",
@@ -3869,9 +3875,9 @@ dependencies = [
 
 [[package]]
 name = "ra-ap-rustc_index"
-version = "0.63.0"
+version = "0.80.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9027acdee649b0b27eb10b7db5be833efee3362d394935c5eed8f0745a9d43ce"
+checksum = "5b2bc6b4ecede8ff28295041e22c2e66853f8e0125990c05135bad3c30bad12c"
 dependencies = [
  "arrayvec",
  "ra-ap-rustc_index_macros",
@@ -3880,9 +3886,9 @@ dependencies = [
 
 [[package]]
 name = "ra-ap-rustc_index_macros"
-version = "0.63.0"
+version = "0.80.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "540b86dc0384141ac8e825fc2874cd44bffd4277d99d8ec63ee416f1a98d5997"
+checksum = "2374a39fb2d92d0509178c2b442eadca3cc10e403ef9729a040c1855b08ff261"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -3891,9 +3897,9 @@ dependencies = [
 
 [[package]]
 name = "ra-ap-rustc_lexer"
-version = "0.63.0"
+version = "0.80.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3bdf98bb457b47b9ae4aeebf867d0ca440c86925e0b6381658c4a02589748c9d"
+checksum = "5a2cf8e48b69af3ecc29ed3449892e8a999111d2f75212a78aa242e117cf1711"
 dependencies = [
  "unicode-properties",
  "unicode-xid",
@@ -3901,9 +3907,9 @@ dependencies = [
 
 [[package]]
 name = "ra-ap-rustc_parse_format"
-version = "0.63.0"
+version = "0.80.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e8fe3556ab6311bb775220563a300e2bf62ec56404521fe0c511a583937683d5"
+checksum = "8d6f59a22b559263c5c42747ae362cf5d4fb272293fa119a4623f8ec288f9656"
 dependencies = [
  "ra-ap-rustc_index",
  "ra-ap-rustc_lexer",
@@ -3911,12 +3917,12 @@ dependencies = [
 
 [[package]]
 name = "ra-ap-rustc_pattern_analysis"
-version = "0.63.0"
+version = "0.80.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1709080fdeb5db630e1c2644026c2962aaa32416cd92f0190c04b0c21e114b91"
+checksum = "a7d0575b54ffe09bc5d2f158454bc05f0c30c01d9992310965f854be50ae22b8"
 dependencies = [
  "ra-ap-rustc_index",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "rustc_apfloat",
  "smallvec",
  "tracing",
@@ -4095,7 +4101,7 @@ checksum = "6c20b6793b5c2fa6553b250154b78d6d0db37e72700ae35fad9387a46f487c97"
 [[package]]
 name = "rust-analyzer"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "always-assert",
  "anyhow",
@@ -4127,7 +4133,7 @@ dependencies = [
  "profile",
  "project-model",
  "rayon",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "scip",
  "semver",
  "serde",
@@ -4224,14 +4230,14 @@ checksum = "f3cb5ba0dc43242ce17de99c180e96db90b235b8a9fdc9543c96d2209116bd9f"
 [[package]]
 name = "salsa"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "indexmap",
  "itertools",
  "lock_api",
  "oorandom",
  "parking_lot 0.12.3",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "salsa-macros",
  "smallvec",
  "tracing",
@@ -4241,7 +4247,7 @@ dependencies = [
 [[package]]
 name = "salsa-macros"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "heck",
  "proc-macro2",
@@ -4260,9 +4266,9 @@ dependencies = [
 
 [[package]]
 name = "scip"
-version = "0.3.3"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e5dc1bd66649133af84ab62436ddd2856c2605182b02dec2cd197f684dfe15ef"
+checksum = "8dfafd2fa14c6237fa1fc4310f739d02fa915d92977fa069426591f1de046f81"
 dependencies = [
  "protobuf",
 ]
@@ -4513,9 +4519,9 @@ dependencies = [
 
 [[package]]
 name = "smol_str"
-version = "0.3.1"
+version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "66eaf762c5af19db3108300515c8aa7a50efc90ff745f4c62288052ebf9fdd25"
+checksum = "9676b89cd56310a87b93dec47b11af744f34d5fc9f367b829474eec0a891350d"
 dependencies = [
  "borsh",
  "serde",
@@ -4566,11 +4572,11 @@ dependencies = [
 [[package]]
 name = "span"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "hashbrown 0.14.5",
  "la-arena",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "salsa",
  "stdx",
  "syntax",
@@ -4608,7 +4614,7 @@ checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
 [[package]]
 name = "stdx"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "always-assert",
  "crossbeam-channel",
@@ -4684,7 +4690,7 @@ dependencies = [
 [[package]]
 name = "syntax"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "cov-mark",
  "either",
@@ -4693,10 +4699,9 @@ dependencies = [
  "parser",
  "ra-ap-rustc_lexer",
  "rowan",
- "rustc-hash 1.1.0",
- "smol_str 0.3.1",
+ "rustc-hash 2.0.0",
+ "smol_str 0.3.2",
  "stdx",
- "text-edit",
  "tracing",
  "triomphe",
 ]
@@ -4704,11 +4709,11 @@ dependencies = [
 [[package]]
 name = "syntax-bridge"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "intern",
  "parser",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "span",
  "stdx",
  "syntax",
@@ -4770,15 +4775,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "text-edit"
-version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
-dependencies = [
- "itertools",
- "text-size",
-]
-
-[[package]]
 name = "text-size"
 version = "1.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4822,7 +4818,9 @@ checksum = "5dfd88e563464686c916c7e46e623e520ddc6d79fa6641390f2e3fa86e83e885"
 dependencies = [
  "deranged",
  "itoa",
+ "libc",
  "num-conv",
+ "num_threads",
  "powerfmt",
  "serde",
  "time-core",
@@ -4965,7 +4963,7 @@ dependencies = [
 [[package]]
 name = "toolchain"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "camino",
  "home",
@@ -5022,6 +5020,7 @@ checksum = "ad0f048c97dbd9faa9b7df56362b8ebcaa52adb06b498c050d2f4e32f90a7a8b"
 dependencies = [
  "sharded-slab",
  "thread_local",
+ "time",
  "tracing-core",
  "tracing-log",
 ]
@@ -5051,7 +5050,7 @@ dependencies = [
 [[package]]
 name = "tt"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "arrayvec",
  "intern",
@@ -5212,14 +5211,14 @@ checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
 [[package]]
 name = "vfs"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "crossbeam-channel",
  "fst",
  "indexmap",
  "nohash-hasher",
  "paths",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "stdx",
  "tracing",
 ]
@@ -5227,13 +5226,13 @@ dependencies = [
 [[package]]
 name = "vfs-notify"
 version = "0.0.0"
-source = "git+https://github.com/rust-lang/rust-analyzer.git#4221354a8fe90ea8218d3757d14735eac08d3e81"
+source = "git+https://github.com/rust-lang/rust-analyzer.git#150b0e72929453f800db1a14e81003295ea5822d"
 dependencies = [
  "crossbeam-channel",
  "notify",
  "paths",
  "rayon",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.0.0",
  "stdx",
  "tracing",
  "vfs",
@@ -5504,7 +5503,7 @@ dependencies = [
  "js-sys",
  "log",
  "naga",
- "parking_lot 0.12.3",
+ "parking_lot 0.11.2",
  "profiling",
  "raw-window-handle",
  "smallvec",
@@ -5532,7 +5531,7 @@ dependencies = [
  "log",
  "naga",
  "once_cell",
- "parking_lot 0.12.3",
+ "parking_lot 0.11.2",
  "profiling",
  "raw-window-handle",
  "rustc-hash 1.1.0",
@@ -5574,7 +5573,7 @@ dependencies = [
  "ndk-sys 0.5.0+25.2.9519653",
  "objc",
  "once_cell",
- "parking_lot 0.12.3",
+ "parking_lot 0.11.2",
  "profiling",
  "range-alloc",
  "raw-window-handle",
